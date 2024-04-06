@@ -34,7 +34,7 @@ function Blocks () {
     const [pageId, setPageId] = useState()
     const blockIs = useRef(0);
     const [loading, setLoading] = useState(true)
-    const pageSize = 10;
+    const pageSize = 20;
     if(page === undefined) {
         page = 1
     }
@@ -120,16 +120,16 @@ function Blocks () {
         } else if((timeDiff/60000) < 60) {
             timeAgo = parseInt((timeDiff/60000)) + " mins ago"
         } else {
-            timeAgo = parseInt((timeDiff/360000)) + " hours ago"
+            timeAgo = parseInt((timeDiff/3600000)) + " hours ago"
         }
         return (
-            <div className='flex items-center justify-between w-full border-t border-gray-500 py-4'>
+            <div className='flex items-center justify-between w-full border-b border-gray-200 py-4'>
                 <div className='flex space-x-2'>
                     <div className='text-black flex items-center'>
                         <div class="bg-opacity-5 rounded-lg justify-center items-center gap-2.5 flex">
                             <div class="relative">
                                 <div class="group-hover:text-v2-primary fill-current text-v2-lily/[.75]">
-                                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" focusable="false" class="chakra-icon css-19d0vrp" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                                <svg viewBox="64 64 896 896" focusable="false" data-icon="block" width="1.5em" height="1.5em" fill="currentColor" aria-hidden="true"><path d="M856 376H648V168c0-8.8-7.2-16-16-16H168c-8.8 0-16 7.2-16 16v464c0 8.8 7.2 16 16 16h208v208c0 8.8 7.2 16 16 16h464c8.8 0 16-7.2 16-16V392c0-8.8-7.2-16-16-16zm-480 16v188H220V220h360v156H392c-8.8 0-16 7.2-16 16zm204 52v136H444V444h136zm224 360H444V648h188c8.8 0 16-7.2 16-16V444h156v360z"></path></svg>
                                 </div>
                             </div>
                         </div>
@@ -148,22 +148,20 @@ function Blocks () {
     }
 
     return (
-        <div className="bg-gray-200 h-screen w-full overflow-auto">
-            <div className='w-full h-20'></div>
-            <div className='p-4 flex items-center space-x-1.5'>
-                <div className='font-bold text-2xl'>Blocks</div>
-                <div className='text-xl'> | </div>
-                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" focusable="false" class="chakra-icon css-19d0vrp" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                <div className='text-md font-semibold'>Latest Blocks</div>
+        <div className="bg-[#F5F5F5] h-screen w-full overflow-auto">
+            <div className=' flex items-center jusify-center w-full h-20 bg-white'>
+                <div className='bg-[#FEFFE6] text-[#D4B106] p-2'>Chain ID - shielded-expedition.88f17d1d14</div>
             </div>
             <div className='w-full flex items-center justify-between p-4 space-x-6'>
                 <div className='w-full bg-white text-black px-6 rounded-md overflow-x-auto'>
-                    {/* <div>
-                        <div className='text-xl'>Blocks</div>
-                        <div className='text-gray-500'>Latest Blocks</div>
-                    </div> */}
-                    <div className='py-6'>
-                        <div className='flex justify-between py-4 font-bold'>
+                    <div className='py-6 flex items-center space-x-1.5 text-green-600'>
+                        <div className='font-bold text-2xl'>Blocks</div>
+                        <div className='text-xl'> | </div>
+                        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" focusable="false" class="chakra-icon css-19d0vrp" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        <div className='text-md font-semibold'>Latest Blocks</div>
+                    </div>
+                    <div className=''>
+                        <div className='flex justify-between p-4 font-semibold bg-[#F5F5F5]'>
                             <div className='w-24'>Block</div>
                             <div className='w-24'>Hash</div>
                             <div>Proposer</div>
@@ -172,20 +170,13 @@ function Blocks () {
                         </div>
                         <div>
                             {
-                                !loading ? [...blockData.keys()].sort((a, b) => (b - a)).map((element) => {
+                                [...blockData.keys()].sort((a, b) => (b - a)).map((element) => {
                                     return (
                                         <BlockPane blockId={element}/>
                                     )
-                                }) : "Loading..."
+                                })
                             }
                         </div>
-                        <div className='rounded-md w-full py-2 sm:py-3 lg:py-4 bg-[#FFEA00] font-semibold text-md text-[#1A1A1A]'>
-                        <div className='flex justify-center space-x-4 text-lg font-bold'>
-                            <button onClick={() => {navigate('/blocks/' + (parseInt(page) - 1)); setPageId(parseInt(page) + 1)}} className={`${parseInt(page) === 1 ? 'hidden ' : ' '} hover:text-[#FFFF00]`}>{'<'}</button>
-                            <div >{page}</div>
-                            <button onClick={() => {navigate('/blocks/' + (parseInt(page) + 1)); setPageId(parseInt(page) + 1)}} className='hover:text-[#FFFF00]'>{'>'}</button>
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>

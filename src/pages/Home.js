@@ -139,7 +139,7 @@ function Home () {
 
     function ValidatorPane ({ _validatorData }) {
         return (
-            <div className='flex items-center justify-between w-full border-t border-gray-500 py-4'>
+            <div className='flex items-center justify-between w-full border-b border-gray-200 py-4'>
                 <div className='text-[14px] w-[120px] truncate'>{_validatorData["address"]}</div>
                 <div className='text-[14px]'>{parseFloat(_validatorData["voting_power"]/1000000)} NAAN</div>
                 <div className='text-[14px]'>{_validatorData["proposer_priority"]}</div>
@@ -148,76 +148,48 @@ function Home () {
     }
 
     return (
-        <div className='bg-gray-200 h-screen w-full'>
-            <div className='w-full h-20'></div>
+        <div className='bg-[#F5F5F5] h-screen w-full'>
+            <div className=' flex items-center jusify-center w-full h-20 bg-white'>
+                <div className='bg-[#FEFFE6] text-[#D4B106] p-2'>Chain ID - shielded-expedition.88f17d1d14</div>
+            </div>
             <div className='flex flex-col xl:flex-row items-center justify-between w-full p-4 space-y-3 xl:space-y-0 xl:space-x-3'>
-                <div className='text-xl flex flex-col  items-center justify-between rounded-md bg-white w-80 py-4 space-y-1'>
+                <div className='text-xl flex flex-col  items-center justify-between bg-white w-80 py-4 space-y-1'>
                     <div className='p-2 border rounded-full bg-[#9DECF9] text-blue-400'>
-                        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" focusable="false" class="chakra-icon css-1rory0d" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        <svg viewBox="64 64 896 896" focusable="false" data-icon="block" width="1.5em" height="1.5em" fill="currentColor" aria-hidden="true"><path d="M856 376H648V168c0-8.8-7.2-16-16-16H168c-8.8 0-16 7.2-16 16v464c0 8.8 7.2 16 16 16h208v208c0 8.8 7.2 16 16 16h464c8.8 0 16-7.2 16-16V392c0-8.8-7.2-16-16-16zm-480 16v188H220V220h360v156H392c-8.8 0-16 7.2-16 16zm204 52v136H444V444h136zm224 360H444V648h188c8.8 0 16-7.2 16-16V444h156v360z"></path></svg>
                     </div>
                     <div className='text-base font-semibold'>Latest Block</div>
                     <div className='text-sm'>{latestBlock !== undefined ? latestBlock["height"] : ""}</div>
                 </div>
-                <div className='text-xl flex flex-col  items-center justify-between rounded-md bg-white w-80 py-4 space-y-1'>
+                <div className='text-xl flex flex-col  items-center justify-between bg-white w-80 py-4 space-y-1'>
                     <div className='p-2 border rounded-full bg-[#9AE6B4] text-green-600'>
-                        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" focusable="false" class="chakra-icon css-1blzw8w" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <svg viewBox="64 64 896 896" focusable="false" data-icon="field-time" width="1.5em" height="1.5em" fill="currentColor" aria-hidden="true"><defs><style></style></defs><path d="M945 412H689c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h256c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM811 548H689c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h122c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM477.3 322.5H434c-6.2 0-11.2 5-11.2 11.2v248c0 3.6 1.7 6.9 4.6 9l148.9 108.6c5 3.6 12 2.6 15.6-2.4l25.7-35.1v-.1c3.6-5 2.5-12-2.5-15.6l-126.7-91.6V333.7c.1-6.2-5-11.2-11.1-11.2z"></path><path d="M804.8 673.9H747c-5.6 0-10.9 2.9-13.9 7.7a321 321 0 01-44.5 55.7 317.17 317.17 0 01-101.3 68.3c-39.3 16.6-81 25-124 25-43.1 0-84.8-8.4-124-25-37.9-16-72-39-101.3-68.3s-52.3-63.4-68.3-101.3c-16.6-39.2-25-80.9-25-124 0-43.1 8.4-84.7 25-124 16-37.9 39-72 68.3-101.3 29.3-29.3 63.4-52.3 101.3-68.3 39.2-16.6 81-25 124-25 43.1 0 84.8 8.4 124 25 37.9 16 72 39 101.3 68.3a321 321 0 0144.5 55.7c3 4.8 8.3 7.7 13.9 7.7h57.8c6.9 0 11.3-7.2 8.2-13.3-65.2-129.7-197.4-214-345-215.7-216.1-2.7-395.6 174.2-396 390.1C71.6 727.5 246.9 903 463.2 903c149.5 0 283.9-84.6 349.8-215.8a9.18 9.18 0 00-8.2-13.3z"></path></svg>
                     </div>
                     <div className='text-base font-semibold'>Block Time</div>
                     <div className='text-sm'>{latestBlock !== undefined ? latestBlock["time"] : ""}</div>
                 </div>
-                <div className='text-xl flex flex-col items-center justify-between rounded-md bg-white w-80 py-4 space-y-1'>
-                    <div className='p-2 border rounded-full bg-[#FBD38D] text-orange-600'>
-                        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" focusable="false" class="chakra-icon css-rq451k" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
-                    </div>
-                    <div className='text-base font-semibold'>Network</div>
-                    <div className='text-sm'>shielded-expedition.88f17d1d14</div>
-                </div>
-                <div className='text-xl flex flex-col  items-center justify-between rounded-md bg-white w-80 py-4 space-y-1'>
+                <div className='text-xl flex flex-col  items-center justify-between bg-white w-80 py-4 space-y-1'>
                     <div className='p-2 border rounded-full bg-[#D6BCFA] text-violet-600'>
-                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" focusable="false" class="chakra-icon css-71zm2" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+                    <svg viewBox="64 64 896 896" focusable="false" data-icon="user" width="1.5em" height="1.5em" fill="currentColor" aria-hidden="true"><path d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"></path></svg>
                     </div>
                     <div className='text-base font-semibold'>Total Validators</div>
                     <div className='text-sm'>{validatorData !== undefined ? validatorData["total"] : ""}</div>
                 </div>
             </div>
+            <div className='h-12'></div>
+            <div className='px-6 flex'>
+                <div className='bg-[#D6BCFA] text-violet-600 p-2 px-4'>Top 10 Validators</div>
+            </div>
             <div className='flex flex-col 2xl:flex-row w-full flex items-start justify-between p-4 2xl:space-x-6 space-y-3 2xl:space-y-0'>
-                {/* <div className='w-full 2xl:w-1/2 bg-black text-white p-6 rounded-md overflow-x-auto'>
-                    <div>
-                        <div className='text-xl'>Blocks</div>
-                        <div className='text-gray-500'>Latest Blocks</div>
-                    </div>
-                    <div className='mt-6 px-4'>
-                        <div className='flex justify-between py-4 font-bold'>
-                            <div className='w-24'>Block</div>
-                            <div className='w-24'>Hash</div>
-                            <div>Proposer</div>
-                            <div>Txns</div>
-                        </div>
-                        <div>
-                            {
-                                [...blockData.keys()].sort((a, b) => (b - a)).slice(0,5).map((element) => {
-                                    return (
-                                        <BlockPane blockId={element}/>
-                                    )
-                                })    
-                            }
-                        </div>
-                    </div>
-                </div> */}
                 <div className='w-full bg-white text-black p-6 rounded-md overflow-x-auto'>
-                    <div>
-                        <div className='text-xl'>Validators</div>
-                        <div className='text-gray-500'>Top Validators</div>
+                    <div className='flex justify-between py-4 font-semibold bg-[#F5F5F5] px-4'>
+                        <div className='w-28'>Address</div>
+                        <div>Voting Power</div>
+                        <div>Proposer Priority</div>
                     </div>
-                    <div className='mt-6 px-4'>
-                        <div className='flex justify-between py-4 font-bold'>
-                            <div className='w-28'>Address</div>
-                            <div>Voting Power</div>
-                            <div>Proposer Priority</div>
-                        </div>
+                    <div className='px-4'>
                         <div>
                             {
-                                JSON.stringify(validatorData) !== '{}' && validatorData !== undefined ? validatorData["validators"].slice(0,7).map(element => {
+                                JSON.stringify(validatorData) !== '{}' && validatorData !== undefined ? validatorData["validators"].slice(0,10).map(element => {
                                     return (
                                         <ValidatorPane _validatorData={element}/>
                                     )

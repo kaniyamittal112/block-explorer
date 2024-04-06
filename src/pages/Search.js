@@ -41,7 +41,7 @@ function Search () {
             <div className='h-content space-y-6 flex flex-col'>
                 <div className='p-4'>
                     <div className='bg-white text-black p-6 overflow-x-auto'>
-                        <div className='text-xl'>Transaction Overview</div>
+                        <div className='text-xl text-center font-semibold text-3xl'>Transaction Overview</div>
                         <div className='flex justify-between py-6'>
                             <div>
                                 <div className='text-gray-400'>Transaction Hash</div>
@@ -102,7 +102,8 @@ function Search () {
             <div className='h-content space-y-6 flex flex-col'>
                 <div className='p-4'>
                     <div className='bg-white text-black p-6 overflow-x-auto'>
-                        <div className='text-xl'>Block Overview</div>
+                        <div className='text-3xl text-center font-semibold'>Block Overview</div>
+                        <div className='py-4'></div>
                         <div className='flex justify-between py-6'>
                             <div>
                                 <div className='text-gray-400'>Block Height</div>
@@ -131,10 +132,10 @@ function Search () {
                 </div>
                 <div className='p-4'>
                     <div className='bg-white text-black p-6 overflow-x-auto'>
-                        <div className='text-xl'>Block Transactions</div>
-                        <div className='py-2'></div>
+                        <div className='text-3xl text-center font-semibold'>Block Transactions</div>
+                        <div className='py-4'></div>
                         <div>
-                            <div className='flex justify-between py-4 text-lg'>
+                            <div className='flex justify-between py-4 text-lg bg-[#F5F5F5] px-4 font-semibold'>
                                 <div className='w-96'>Transaction</div>
                                 <div>Block</div>
                                 <div>Transaction Type</div>
@@ -144,7 +145,7 @@ function Search () {
                             {
                                 blockData["txn_hash"] !== undefined ? blockData["txn_hash"].map(element => {
                                     return (
-                                        <div className='flex items-center justify-between w-full border-t border-gray-500 py-4'>
+                                        <div className='flex items-center justify-between w-full border-b border-gray-200 py-4'>
                                             <button onClick={() => {navigate('/search/' + element['hash_id'])}} className='text-black underline text-[14px] w-80 truncate'>{element["hash_id"]}</button>
                                             <div className='text-[14px]'>#{blockData["block_height"]}</div>
                                             <div>{element["tx_type"]}</div>
@@ -160,31 +161,20 @@ function Search () {
     }
 
     return (
-        <div className="bg-gray-200 h-screen w-full overflow-auto">
-            <div className='w-full h-20'></div>
-            <div className='w-full px-4'>
+        <div className="bg-[#F5F5F5] h-screen w-full overflow-auto">
+            <div className='w-full'>
                 <div className='flex justify-between z-0 w-full py-4 bg-white'>
                     <div className='flex items-center space-x-4 mx-4'>
-                        <div className='text-green-700'>
-                            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" focusable="false" class="chakra-icon css-zajgvi" height="2.2em" width="2.2em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="2"></circle><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"></path></svg>
-                        </div>
-                        <div>
-                            <div className='font-semibold text-md'>shielded-expedition.88f17d1d14</div>
-                        </div>
+                        <div className='bg-[#FEFFE6] text-[#D4B106] p-2'>Chain ID - shielded-expedition.88f17d1d14</div>
                     </div>
-                    <div>
+                    <div className='mr-4'>
                         <form class="flex items-center w-96 mx-auto space-x-4 mx-4">   
                             <label for="voice-search" class="sr-only">Search</label>
                             <div class="relative w-full">
-                                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                                    <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                                    </svg>
-                                </div>
-                                <input ref={searchInput} onChange={e => {searchInput.current = e.target.value}} type="text" id="voice-search" class="bg-gray-200 border border-gray-300 text-black text-sm rounded-lg focus:ring-[#FFEA00] focus:border-[#FFEA00] block w-full ps-10 p-2.5  dark:bg-gray-200 dark:border-gray-200 dark:placeholder-black dark:text-black" placeholder="Search By Block Height / Txn Hash" required />
+                                <input ref={searchInput} onChange={e => {searchInput.current = e.target.value}} type="text" id="voice-search" class="bg-[#F6F6F6] border border-gray-300 text-gray-400 text-sm rounded-lg focus:ring-[#D4B106] focus:border-[#D4B106] block w-full p-2.5  dark:bg-[#F6F6F6] dark:border-gray-200 dark:placeholder-gray-400 dark:text-gray-400" placeholder="Search By Block Height / Txn Hash" required />
                             </div>
                             <button onClick={() => {if(typeof(searchInput.current) !== 'object'){navigate('/search/' + searchInput.current)} }} type="submit" class="">
-                                <div className='text-black'>
+                                <div className='text-[#D4B106]'>
                                     <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                                     </svg>
